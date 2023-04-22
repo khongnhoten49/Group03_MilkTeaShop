@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Group03_MilkTeaShop.DAO
+{
+    internal class AccountDAO
+    {
+        public AccountDAO() 
+        { 
+            
+        }
+        public DataTable Login(string username, string password, int role)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("UP_Login", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@passWord", password);
+                    command.Parameters.AddWithValue("@roleEmployee", role);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return null;
+            }   
+        }
+    }
+}
