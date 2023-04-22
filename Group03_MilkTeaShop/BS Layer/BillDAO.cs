@@ -12,7 +12,7 @@ namespace Group03_MilkTeaShop.BS_Layer
 {
     internal class BillDAO
     {
-        public DataTable GetBillByDate(DateTime start, DateTime end, int id)
+        public DataTable GetBillByDate(string start, string end, int id)
         {
             try
             {

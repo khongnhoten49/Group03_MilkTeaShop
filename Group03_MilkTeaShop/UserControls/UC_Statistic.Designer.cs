@@ -40,6 +40,7 @@
             this.cbCashierName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxFindByName = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBill)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +78,7 @@
             // 
             // dataGridViewBill
             // 
+            this.dataGridViewBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBill.Location = new System.Drawing.Point(60, 244);
             this.dataGridViewBill.Name = "dataGridViewBill";
@@ -143,7 +145,7 @@
             this.cbCashierName.FormattingEnabled = true;
             this.cbCashierName.Location = new System.Drawing.Point(210, 151);
             this.cbCashierName.Name = "cbCashierName";
-            this.cbCashierName.Size = new System.Drawing.Size(372, 30);
+            this.cbCashierName.Size = new System.Drawing.Size(314, 30);
             this.cbCashierName.TabIndex = 19;
             this.cbCashierName.SelectedIndexChanged += new System.EventHandler(this.cbCashierName_SelectedIndexChanged);
             // 
@@ -169,10 +171,22 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "__________________________________________________________________";
             // 
+            // checkBoxFindByName
+            // 
+            this.checkBoxFindByName.AutoSize = true;
+            this.checkBoxFindByName.Location = new System.Drawing.Point(533, 160);
+            this.checkBoxFindByName.Name = "checkBoxFindByName";
+            this.checkBoxFindByName.Size = new System.Drawing.Size(114, 20);
+            this.checkBoxFindByName.TabIndex = 29;
+            this.checkBoxFindByName.Text = "Find By Name";
+            this.checkBoxFindByName.UseVisualStyleBackColor = true;
+            this.checkBoxFindByName.CheckedChanged += new System.EventHandler(this.checkBoxFindByName_CheckedChanged);
+            // 
             // UC_Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBoxFindByName);
             this.Controls.Add(this.endDate);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.btnGeneReport);
@@ -208,5 +222,6 @@
         private System.Windows.Forms.ComboBox cbCashierName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxFindByName;
     }
 }
