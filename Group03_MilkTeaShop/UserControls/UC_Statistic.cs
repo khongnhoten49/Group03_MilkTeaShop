@@ -60,10 +60,17 @@ namespace Group03_MilkTeaShop.UserControls
             string StartDate = startDate.Value.ToString("yyyy-MM-dd");
             string EndDate = endDate.Value.ToString("yyyy-MM-dd");
 
-            DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
-            int id = Convert.ToInt32(selectedRow["Id"]);
+            if (checkBoxFindByName.Checked)
+            {
+                DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
+                int id = Convert.ToInt32(selectedRow["Id"]);
 
-            dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);
+                dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);
+            }
+            else
+            {
+                dataGridViewBill.DataSource = billDAO.GetBillOnlyByDate(StartDate, EndDate);
+            }
         }
 
         private void checkBoxFindByName_CheckedChanged(object sender, EventArgs e)
@@ -75,6 +82,19 @@ namespace Group03_MilkTeaShop.UserControls
             else
             {
                 cbCashierName.Enabled = false;
+            }
+        }
+
+        private void dataGridViewBill_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewBill.CurrentRow != null)
+            {
+                int idValue = Convert.ToInt32(dataGridViewBill.CurrentRow.Cells["ID"].Value.ToString());
+                dataGridViewOrderDetail.DataSource = billDAO.GetBillDetail(idValue);
+            }
+            else
+            {
+                MessageBox.Show("ccccc");
             }
         }
     }
