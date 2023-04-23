@@ -28,70 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonView = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.UC_Container_PM = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // button5
+            // buttonExit
             // 
-            this.button5.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(567, 17);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 48);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Exit";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonExit.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.Location = new System.Drawing.Point(567, 17);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(129, 48);
+            this.buttonExit.TabIndex = 11;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonView
             // 
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(382, 17);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(179, 48);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "View";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonView.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonView.Location = new System.Drawing.Point(382, 17);
+            this.buttonView.Name = "buttonView";
+            this.buttonView.Size = new System.Drawing.Size(179, 48);
+            this.buttonView.TabIndex = 10;
+            this.buttonView.Text = "View";
+            this.buttonView.UseVisualStyleBackColor = true;
+            this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
             // 
-            // button2
+            // buttonEdit
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(197, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 48);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonEdit.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Location = new System.Drawing.Point(197, 17);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(179, 48);
+            this.buttonEdit.TabIndex = 8;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // button1
+            // buttonAdd
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 48);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAdd.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.Location = new System.Drawing.Point(12, 17);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(179, 48);
+            this.buttonAdd.TabIndex = 7;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // panel1
+            // UC_Container_PM
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 71);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1233, 678);
-            this.panel1.TabIndex = 6;
+            this.UC_Container_PM.Location = new System.Drawing.Point(12, 71);
+            this.UC_Container_PM.Name = "UC_Container_PM";
+            this.UC_Container_PM.Size = new System.Drawing.Size(1233, 678);
+            this.UC_Container_PM.TabIndex = 6;
             // 
             // ProductManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1257, 766);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonView);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.UC_Container_PM);
             this.Name = "ProductManagement";
             this.Text = "ProductManagement";
             this.ResumeLayout(false);
@@ -100,10 +103,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonView;
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Panel UC_Container_PM;
     }
 }

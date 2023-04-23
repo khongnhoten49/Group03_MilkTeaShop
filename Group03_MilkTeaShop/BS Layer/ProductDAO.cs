@@ -104,5 +104,32 @@ namespace Group03_MilkTeaShop.DAO
                 throw ex;
             }
         }
+        public int AddProduct(string name, int idCategory, int quantity, int price)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("UP_AddDrink", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@idCategory", idCategory);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+                    command.Parameters.AddWithValue("@price", price);
+
+                    connection.Open();
+                    int returnValue = command.ExecuteNonQuery();
+                    return returnValue;
+                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return 0;
+                throw ex;
+            }
+           
+        }
     }
 }

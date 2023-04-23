@@ -11,7 +11,7 @@ namespace Group03_MilkTeaShop.DAO
 {
     internal class DB_Connect
     {
-        private static readonly string connectionString = @"Data Source=MSI;Initial Catalog=MilkTeaShop;Integrated Security=True";
+        private static readonly string connectionString = @"Data Source=DESKTOP-42L3GL9;Initial Catalog=MilkTeaShop;Integrated Security=True";
 
         public static SqlConnection GetConnection()
         {

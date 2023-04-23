@@ -63,6 +63,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MilkTeaShopDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilkTeaShopDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +149,17 @@
     <EmbeddedResource Include="UserControls\UC_ViewProduct.resx">
       <DependentUpon>UC_ViewProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MilkTeaShopDataSet.xsc">
+      <DependentUpon>MilkTeaShopDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MilkTeaShopDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MilkTeaShopDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MilkTeaShopDataSet.xss">
+      <DependentUpon>MilkTeaShopDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
