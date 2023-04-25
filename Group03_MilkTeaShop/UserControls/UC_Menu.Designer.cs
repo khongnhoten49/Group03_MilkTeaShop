@@ -209,6 +209,7 @@
             this.dataGridViewMenu.Location = new System.Drawing.Point(3, 98);
             this.dataGridViewMenu.Name = "dataGridViewMenu";
             this.dataGridViewMenu.ReadOnly = true;
+            this.dataGridViewMenu.RowHeadersVisible = false;
             this.dataGridViewMenu.RowHeadersWidth = 50;
             this.dataGridViewMenu.RowTemplate.Height = 24;
             this.dataGridViewMenu.Size = new System.Drawing.Size(828, 571);
