@@ -95,5 +95,24 @@ namespace Group03_MilkTeaShop.UserControls
             comboBoxListBill.DataSource = billDAO.LoadUnCkeckedBill();
             comboBoxListBill.DisplayMember = "ID";
         }
+
+        private void BtnAddToOrder_Click(object sender, EventArgs e)
+        {
+            int idProduct = Convert.ToInt32(dataGridViewMenu.CurrentRow.Cells["ID"].Value.ToString());
+            DataRowView selectedRow = (DataRowView)comboBoxListBill.SelectedItem;
+            int idBill = Convert.ToInt32(selectedRow["ID"].ToString());
+            
+            int quantity = Convert.ToInt32(numericUpDownQuantity.Value);
+
+            int result = billDAO.AddToOrder(idBill, idProduct, quantity);
+            if(result > 0)
+            {
+                MessageBox.Show("Add to order successful");
+            }
+            else
+            {
+                MessageBox.Show("order fail");
+            }
+        }
     }
 }

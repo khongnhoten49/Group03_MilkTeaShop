@@ -153,5 +153,29 @@ namespace Group03_MilkTeaShop.BS_Layer
                 throw ex;
             }
         }
+        public int AddToOrder(int idBill, int idProduct, int quantity)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("UP_InsertBillInfo", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@idBill", idBill);
+                    command.Parameters.AddWithValue("@idProduct", idProduct);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+                    connection.Open();
+                    int returnValue = command.ExecuteNonQuery();
+                    return returnValue;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return 0;
+                throw ex;
+            }
+        }
     }
 }

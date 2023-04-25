@@ -38,7 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnAddToOrder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -68,7 +68,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.BtnAddToOrder);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(883, 3);
@@ -168,15 +168,16 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Quantity:";
             // 
-            // button2
+            // BtnAddToOrder
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(34, 589);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(300, 49);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Add to Order";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnAddToOrder.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddToOrder.Location = new System.Drawing.Point(34, 589);
+            this.BtnAddToOrder.Name = "BtnAddToOrder";
+            this.BtnAddToOrder.Size = new System.Drawing.Size(300, 49);
+            this.BtnAddToOrder.TabIndex = 7;
+            this.BtnAddToOrder.Text = "Add to Order";
+            this.BtnAddToOrder.UseVisualStyleBackColor = true;
+            this.BtnAddToOrder.Click += new System.EventHandler(this.BtnAddToOrder_Click);
             // 
             // label1
             // 
@@ -305,7 +306,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnAddToOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;

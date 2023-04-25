@@ -13,17 +13,17 @@ namespace Group03_MilkTeaShop
 {
     public partial class Order : Form
     {
-        BillDAO BillDAO = null;
+        BillDAO billDAO = null;
         public Order()
         {
             InitializeComponent();
-            BillDAO = new BillDAO();
+            billDAO = new BillDAO();
         }
 
         private void BtnNewOrder_Click(object sender, EventArgs e)
         {
             int id = Login.id;
-            int result = BillDAO.CreateBill(id);
+            int result = billDAO.CreateBill(id);
             if (result > 0)
             {
                 MessageBox.Show("Create successful");
@@ -32,6 +32,23 @@ namespace Group03_MilkTeaShop
             {
                 MessageBox.Show("Create fail");
             }
+        }
+
+        private void Order_Load(object sender, EventArgs e)
+        {
+            comboBoxListBillOrder.DataSource = billDAO.LoadUnCkeckedBill();
+            comboBoxListBillOrder.DisplayMember = "ID";
+        }
+        private void LoadBillDetail()
+        {
+            DataRowView selectedRow = (DataRowView)comboBoxListBillOrder.SelectedItem;
+            int id = Convert.ToInt32(selectedRow["ID"].ToString());
+            dataGridViewBillOrder.DataSource = billDAO.GetBillDetail(id);
+        }
+
+        private void comboBoxListBillOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadBillDetail();
         }
     }
 }
