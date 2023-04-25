@@ -27,6 +27,7 @@ namespace Group03_MilkTeaShop.UserControls
         {
             LoadCashierName();
             LoadAllBill();
+            checkBoxFindByName.Checked = true;
         }
         private void LoadCashierName()
         {
@@ -41,20 +42,14 @@ namespace Group03_MilkTeaShop.UserControls
 
         private void cbCashierName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DateTime StartDate = startDate.Value;
-            DateTime EndDate = endDate.Value;
+            string StartDate = startDate.Value.ToString("yyyy-MM-dd");
+            string EndDate = endDate.Value.ToString("yyyy-MM-dd");
 
-            int cashierId;
-            if (Int32.TryParse(cbCashierName.SelectedValue.ToString(), out cashierId))
-            {
-                dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, cashierId);
-            }
-            else
-            {
-                    
-            }            
+            DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
+            int id = Convert.ToInt32(selectedRow["Id"]);
+
+            dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);            
         }
-
         private void btnViewAll_Click(object sender, EventArgs e)
         {
             LoadAllBill();
@@ -62,17 +57,44 @@ namespace Group03_MilkTeaShop.UserControls
 
         private void BtnSearchBill_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = startDate.Value;
-            DateTime EndDate = endDate.Value;
+            string StartDate = startDate.Value.ToString("yyyy-MM-dd");
+            string EndDate = endDate.Value.ToString("yyyy-MM-dd");
 
-            int cashierId;
-            if (Int32.TryParse(cbCashierName.SelectedValue.ToString(), out cashierId))
+            if (checkBoxFindByName.Checked)
             {
-                dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, cashierId);
+                DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
+                int id = Convert.ToInt32(selectedRow["Id"]);
+
+                dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);
             }
             else
             {
+                dataGridViewBill.DataSource = billDAO.GetBillOnlyByDate(StartDate, EndDate);
+            }
+        }
 
+        private void checkBoxFindByName_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFindByName.Checked == true)
+            {
+                cbCashierName.Enabled = true;
+            }
+            else
+            {
+                cbCashierName.Enabled = false;
+            }
+        }
+
+        private void dataGridViewBill_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewBill.CurrentRow != null)
+            {
+                int idValue = Convert.ToInt32(dataGridViewBill.CurrentRow.Cells["ID"].Value.ToString());
+                dataGridViewOrderDetail.DataSource = billDAO.GetBillDetail(idValue);
+            }
+            else
+            {
+                MessageBox.Show("ccccc");
             }
         }
     }

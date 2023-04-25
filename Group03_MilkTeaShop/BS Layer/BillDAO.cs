@@ -12,7 +12,7 @@ namespace Group03_MilkTeaShop.BS_Layer
 {
     internal class BillDAO
     {
-        public DataTable GetBillByDate(DateTime start, DateTime end, int id)
+        public DataTable GetBillByDate(string start, string end, int id)
         {
             try
             {
@@ -23,6 +23,31 @@ namespace Group03_MilkTeaShop.BS_Layer
                     command.Parameters.AddWithValue("@StartDate", start);
                     command.Parameters.AddWithValue("@EndDate", end);
                     command.Parameters.AddWithValue("@Id", id);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return null;
+                throw ex;
+            }
+        }
+        public DataTable GetBillOnlyByDate(string start, string end)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM UF_GetBillOnlyByDate(@StartDate, @EndDate)", connection);
+
+                    command.Parameters.AddWithValue("@StartDate", start);
+                    command.Parameters.AddWithValue("@EndDate", end);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
@@ -56,6 +81,30 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (Exception ex)
             {
+                return null;
+                throw ex;
+            }
+        }
+        public DataTable GetBillDetail(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM UF_GetBillDetail(@BillId)", connection);
+
+                    command.Parameters.AddWithValue("@BillId", id);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
                 return null;
                 throw ex;
             }
