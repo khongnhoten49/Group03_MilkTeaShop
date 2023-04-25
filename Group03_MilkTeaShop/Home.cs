@@ -33,6 +33,8 @@ namespace Group03_MilkTeaShop
             MenuBtn.BackColor = Color.Red;
             OrderBtn.BackColor = Color.White;
             StatisticBtn.BackColor = Color.White;
+            ProductMngBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
             UC_Menu uc = new UC_Menu();
             addUserControl(uc);
         }
@@ -42,6 +44,8 @@ namespace Group03_MilkTeaShop
             StatisticBtn.BackColor = Color.Red;
             MenuBtn.BackColor = Color.White;
             OrderBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
+            ProductMngBtn.BackColor = Color.White;
             UC_Statistic uc = new UC_Statistic();
             addUserControl(uc);
         }
@@ -51,6 +55,18 @@ namespace Group03_MilkTeaShop
             ProductManagement productManagement = new ProductManagement();
             productManagement.Show();
             ProductMngBtn.BackColor = Color.Red;
+            StatisticBtn.BackColor = Color.White;
+            MenuBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
+        }
+
+        private void OrderBtn_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            order.Show();
+            OrderBtn.BackColor = Color.Red;
+            ProductMngBtn.BackColor = Color.White;
             StatisticBtn.BackColor = Color.White;
             MenuBtn.BackColor = Color.White;
             OrderBtn.BackColor = Color.White;

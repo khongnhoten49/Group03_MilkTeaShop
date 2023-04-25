@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Group03_MilkTeaShop.BS_Layer
 {
@@ -84,6 +85,28 @@ namespace Group03_MilkTeaShop.BS_Layer
                 throw ex;
             }
         }
+        public DataTable LoadUnCkeckedBill()
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM LoadUnCheckedBill", connection);
+                    cmd.CommandType = CommandType.Text;
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+        }
         public DataTable GetBillDetail(int id)
         {
             try
@@ -105,6 +128,28 @@ namespace Group03_MilkTeaShop.BS_Layer
             {
                 Console.WriteLine("Lỗi: " + ex.Message);
                 return null;
+                throw ex;
+            }
+        }
+        public int CreateBill(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("UP_InsertBill", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@idAccount", id);
+                    connection.Open();
+                    int returnValue = command.ExecuteNonQuery();
+                    return returnValue;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return 0;
                 throw ex;
             }
         }
