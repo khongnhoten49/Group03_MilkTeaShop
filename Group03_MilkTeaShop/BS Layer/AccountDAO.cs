@@ -34,10 +34,10 @@ namespace Group03_MilkTeaShop.DAO
 
                     return dataTable;
                 }
-            }catch (Exception ex)
+            }catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
                 return null;
+                throw ex;
             }   
         }
     }

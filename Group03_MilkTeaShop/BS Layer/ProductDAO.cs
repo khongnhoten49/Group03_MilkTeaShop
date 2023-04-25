@@ -27,7 +27,7 @@ namespace Group03_MilkTeaShop.DAO
 
                     return dataTable;
                 }
-            }catch (Exception ex)
+            }catch (SqlException ex)
             {
                 return null;
                 throw ex;
@@ -49,7 +49,7 @@ namespace Group03_MilkTeaShop.DAO
                     return dataTable;
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 return null;
                 throw ex;
@@ -129,7 +129,6 @@ namespace Group03_MilkTeaShop.DAO
                 return 0;
                 throw ex;
             }
-           
         }
     }
 }

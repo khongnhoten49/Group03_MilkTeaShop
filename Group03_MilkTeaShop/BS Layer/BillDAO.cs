@@ -58,7 +58,6 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
                 return null;
                 throw ex;
             }
