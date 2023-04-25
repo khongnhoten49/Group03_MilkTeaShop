@@ -194,7 +194,7 @@
             this.dataGridViewOrderDetail.RowHeadersVisible = false;
             this.dataGridViewOrderDetail.RowHeadersWidth = 51;
             this.dataGridViewOrderDetail.RowTemplate.Height = 24;
-            this.dataGridViewOrderDetail.Size = new System.Drawing.Size(587, 347);
+            this.dataGridViewOrderDetail.Size = new System.Drawing.Size(611, 347);
             this.dataGridViewOrderDetail.TabIndex = 30;
             // 
             // UC_Statistic

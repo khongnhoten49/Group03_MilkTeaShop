@@ -97,7 +97,6 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
                 return null;
                 throw ex;
             }
@@ -201,7 +200,6 @@ namespace Group03_MilkTeaShop.DAO
                 return 0;
                 throw ex;
             }
-
         }
     }
 }

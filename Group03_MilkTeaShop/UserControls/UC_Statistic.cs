@@ -94,7 +94,7 @@ namespace Group03_MilkTeaShop.UserControls
             }
             else
             {
-                MessageBox.Show("ccccc");
+                
             }
         }
     }

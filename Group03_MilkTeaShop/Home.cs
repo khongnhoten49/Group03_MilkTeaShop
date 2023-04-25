@@ -45,5 +45,15 @@ namespace Group03_MilkTeaShop
             UC_Statistic uc = new UC_Statistic();
             addUserControl(uc);
         }
+
+        private void ProductMngBtn_Click(object sender, EventArgs e)
+        {
+            ProductManagement productManagement = new ProductManagement();
+            productManagement.Show();
+            ProductMngBtn.BackColor = Color.Red;
+            StatisticBtn.BackColor = Color.White;
+            MenuBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace Group03_MilkTeaShop.UserControls
             LoadMenuWithId();
             //LoadCategory();
             LoadAllCategories();
-            EditFoodDataBinding();
+            //EditFoodDataBinding();
         }
 
         void EditFoodDataBinding()
