@@ -45,5 +45,15 @@ namespace Group03_MilkTeaShop
             UC_Statistic uc = new UC_Statistic();
             addUserControl(uc);
         }
+
+        private void ProductMngBtn_Click(object sender, EventArgs e)
+        {
+            ProductManagement pm = new ProductManagement();
+            this.Hide();
+            pm.ShowDialog();
+            this.Show();
+
+
+        }
     }
 }

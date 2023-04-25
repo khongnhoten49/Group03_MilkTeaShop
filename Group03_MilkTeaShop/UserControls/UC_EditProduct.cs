@@ -80,5 +80,10 @@ namespace Group03_MilkTeaShop.UserControls
                 MessageBox.Show("Xóa sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGVEditProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

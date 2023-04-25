@@ -95,6 +95,7 @@
             this.ProductMngBtn.TabIndex = 5;
             this.ProductMngBtn.Text = "Product Management";
             this.ProductMngBtn.UseVisualStyleBackColor = true;
+            this.ProductMngBtn.Click += new System.EventHandler(this.ProductMngBtn_Click);
             // 
             // button1
             // 
