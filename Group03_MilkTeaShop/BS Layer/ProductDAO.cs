@@ -33,6 +33,28 @@ namespace Group03_MilkTeaShop.DAO
                 throw ex;
             }
         }
+        public DataTable LoadMenuWithId()
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM LoadStorageWithId", connection);
+                    cmd.CommandType = CommandType.Text;
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+        }
         public DataTable LoadCategory()
         {
             try
@@ -130,6 +152,57 @@ namespace Group03_MilkTeaShop.DAO
                 throw ex;
             }
            
+        }
+        public int UpdateProduct( int id, string name, int idcategory, int quantity, int price)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("UP_UpdateProduct", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@idCategory", idcategory);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+                    command.Parameters.AddWithValue("@price", price);
+
+                    connection.Open();
+                    int returnValue = command.ExecuteNonQuery();
+                    return returnValue;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return 0;
+                throw ex;
+            }
+
+        }
+        public int DeleteProduct(string name)
+        {
+            try
+            {
+                using (SqlConnection connection = DB_Connect.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("UP_DeleteDrink", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@name", name);
+                    connection.Open();
+                    int returnValue = command.ExecuteNonQuery();
+                    return returnValue;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return 0;
+                throw ex;
+            }
+
         }
     }
 }
