@@ -64,6 +64,7 @@
             this.OrderBtn.TabIndex = 2;
             this.OrderBtn.Text = "Order";
             this.OrderBtn.UseVisualStyleBackColor = true;
+            this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
             // 
             // StatisticBtn
             // 

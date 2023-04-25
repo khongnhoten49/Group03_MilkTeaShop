@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace Group03_MilkTeaShop
     public partial class Login : Form
     {
         AccountDAO accountDAO = null;
+        public static int id = 0;
         public Login()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace Group03_MilkTeaShop
             else { role = 1; }
             if(accountDAO.Login(username, password, role).Rows.Count > 0) 
             {
+                id = Convert.ToInt32(accountDAO.Login(username, password, role).Rows[0]["ID"]);
                 Home home = new Home();
                 home.Show();
 
@@ -55,6 +58,10 @@ namespace Group03_MilkTeaShop
             {
                 txtPassword.PasswordChar = '*';
             }
+        }
+        private void GetIdAccount()
+        {
+
         }
     }
 }
