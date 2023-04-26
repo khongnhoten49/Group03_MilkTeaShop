@@ -110,5 +110,10 @@ namespace Group03_MilkTeaShop.UserControls
             }
             
         }
+
+        private void dataGVEditProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

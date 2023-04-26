@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.ButtonUpdate = new System.Windows.Forms.Button();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
@@ -42,8 +44,6 @@
             this.dataGVEditProduct = new System.Windows.Forms.DataGridView();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVEditProduct)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,25 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Product";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(33, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 22);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "ID:";
+            // 
+            // textBoxId
+            // 
+            this.textBoxId.Enabled = false;
+            this.textBoxId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxId.Location = new System.Drawing.Point(119, 149);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(284, 30);
+            this.textBoxId.TabIndex = 18;
             // 
             // buttonDelete
             // 
@@ -174,6 +193,7 @@
             this.dataGVEditProduct.RowTemplate.Height = 24;
             this.dataGVEditProduct.Size = new System.Drawing.Size(731, 542);
             this.dataGVEditProduct.TabIndex = 7;
+            this.dataGVEditProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVEditProduct_CellContentClick);
             // 
             // buttonSearch
             // 
@@ -192,25 +212,6 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(288, 30);
             this.textBoxSearch.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(33, 152);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 22);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "ID:";
-            // 
-            // textBoxId
-            // 
-            this.textBoxId.Enabled = false;
-            this.textBoxId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxId.Location = new System.Drawing.Point(119, 149);
-            this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(284, 30);
-            this.textBoxId.TabIndex = 18;
             // 
             // UC_EditProduct
             // 
