@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group03_MilkTeaShop.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -6,14 +7,16 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Group03_MilkTeaShop.DAO
 {
     internal class AccountDAO
     {
+        public static SqlException sqlException;
         public AccountDAO() 
         { 
-            
+
         }
         public DataTable Login(string username, string password, int role)
         {
@@ -36,8 +39,8 @@ namespace Group03_MilkTeaShop.DAO
                 }
             }catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }   
         }
     }

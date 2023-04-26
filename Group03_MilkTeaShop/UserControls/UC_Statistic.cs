@@ -31,13 +31,27 @@ namespace Group03_MilkTeaShop.UserControls
         }
         private void LoadCashierName()
         {
-            cbCashierName.DataSource = employeeDAO.LoadCashierName();
-            cbCashierName.DisplayMember = "Name";
-            cbCashierName.ValueMember = "Id";
+            try
+            {
+                cbCashierName.DataSource = employeeDAO.LoadCashierName();
+                cbCashierName.DisplayMember = "Name";
+                cbCashierName.ValueMember = "Id";
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + EmployeeDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void LoadAllBill()
         {
-            dataGridViewBill.DataSource = billDAO.LoadAllBill();
+            try
+            {
+                dataGridViewBill.DataSource = billDAO.LoadAllBill();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + BillDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbCashierName_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +62,14 @@ namespace Group03_MilkTeaShop.UserControls
             DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
             int id = Convert.ToInt32(selectedRow["Id"]);
 
-            dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);            
+            try
+            {
+                dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + BillDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnViewAll_Click(object sender, EventArgs e)
         {
@@ -60,16 +81,23 @@ namespace Group03_MilkTeaShop.UserControls
             string StartDate = startDate.Value.ToString("yyyy-MM-dd");
             string EndDate = endDate.Value.ToString("yyyy-MM-dd");
 
-            if (checkBoxFindByName.Checked)
+            try
             {
-                DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
-                int id = Convert.ToInt32(selectedRow["Id"]);
+                if (checkBoxFindByName.Checked)
+                {
+                    DataRowView selectedRow = (DataRowView)cbCashierName.SelectedItem;
+                    int id = Convert.ToInt32(selectedRow["Id"]);
 
-                dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);
+                    dataGridViewBill.DataSource = billDAO.GetBillByDate(StartDate, EndDate, id);
+                }
+                else
+                {
+                    dataGridViewBill.DataSource = billDAO.GetBillOnlyByDate(StartDate, EndDate);
+                }
             }
-            else
+            catch
             {
-                dataGridViewBill.DataSource = billDAO.GetBillOnlyByDate(StartDate, EndDate);
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + BillDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -87,14 +115,21 @@ namespace Group03_MilkTeaShop.UserControls
 
         private void dataGridViewBill_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewBill.CurrentRow != null)
+            try
             {
-                int idValue = Convert.ToInt32(dataGridViewBill.CurrentRow.Cells["ID"].Value.ToString());
-                dataGridViewOrderDetail.DataSource = billDAO.GetBillDetail(idValue);
+                if (dataGridViewBill.CurrentRow != null)
+                {
+                    int idValue = Convert.ToInt32(dataGridViewBill.CurrentRow.Cells["ID"].Value.ToString());
+                    dataGridViewOrderDetail.DataSource = billDAO.GetBillDetail(idValue);
+                }
+                else
+                {
+
+                }
             }
-            else
+            catch
             {
-                
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + BillDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

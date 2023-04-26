@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,20 +33,41 @@ namespace Group03_MilkTeaShop.UserControls
 
         private void LoadCategory()
         {
-            cbSelectCategory.DataSource = productDAO.LoadCategory();
-            cbSelectCategory.DisplayMember = "name";
-            cbSelectCategory.ValueMember = "id";
+            try
+            {
+                cbSelectCategory.DataSource = productDAO.LoadCategory();
+                cbSelectCategory.DisplayMember = "name";
+                cbSelectCategory.ValueMember = "id";
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void LoadMenu()
         {
-            dataGridViewMenu.DataSource = productDAO.LoadMenu();
+            try
+            {
+                dataGridViewMenu.DataSource = productDAO.LoadMenu();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbSelectCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataRowView selectedRow = (DataRowView)cbSelectCategory.SelectedItem;
             string name = selectedRow["name"].ToString();
-            dataGridViewMenu.DataSource = productDAO.ListProductByCategory(name);
+            try
+            {
+                dataGridViewMenu.DataSource = productDAO.ListProductByCategory(name);
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSearchInMenu_Click(object sender, EventArgs e)
@@ -57,7 +79,14 @@ namespace Group03_MilkTeaShop.UserControls
             }
             else
             {
-                dataGridViewMenu.DataSource = productDAO.SearchProductByName(name);
+                try
+                {
+                    dataGridViewMenu.DataSource = productDAO.SearchProductByName(name);
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -75,7 +104,14 @@ namespace Group03_MilkTeaShop.UserControls
             }
             else
             {
-                dataGridViewMenu.DataSource = productDAO.SearchProductByName(name);
+                try
+                {
+                    dataGridViewMenu.DataSource = productDAO.SearchProductByName(name);
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -92,8 +128,16 @@ namespace Group03_MilkTeaShop.UserControls
             numericUpDownPrice.Value = price;
             numericUpDownQuantity.Value = quantity;
 
-            comboBoxListBill.DataSource = billDAO.LoadUnCkeckedBill();
-            comboBoxListBill.DisplayMember = "ID";
+            try
+            {
+                comboBoxListBill.DataSource = billDAO.LoadUnCkeckedBill();
+                comboBoxListBill.DisplayMember = "ID";
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + BillDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void BtnAddToOrder_Click(object sender, EventArgs e)
@@ -104,14 +148,21 @@ namespace Group03_MilkTeaShop.UserControls
             
             int quantity = Convert.ToInt32(numericUpDownQuantity.Value);
 
-            int result = billDAO.AddToOrder(idBill, idProduct, quantity);
-            if(result > 0)
+            try
             {
-                MessageBox.Show("Add to order successful");
+                int result = billDAO.AddToOrder(idBill, idProduct, quantity);
+                if (result > 0)
+                {
+                    MessageBox.Show("Add to order successful");
+                }
+                else
+                {
+                    MessageBox.Show("order fail");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("order fail");
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + BillDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

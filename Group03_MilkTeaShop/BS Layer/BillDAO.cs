@@ -13,6 +13,7 @@ namespace Group03_MilkTeaShop.BS_Layer
 {
     internal class BillDAO
     {
+        public static SqlException sqlException;
         public DataTable GetBillByDate(string start, string end, int id)
         {
             try
@@ -34,9 +35,8 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable GetBillOnlyByDate(string start, string end)
@@ -59,8 +59,8 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable LoadAllBill()
@@ -79,10 +79,10 @@ namespace Group03_MilkTeaShop.BS_Layer
                     return dataTable;
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable LoadUnCkeckedBill()
@@ -101,10 +101,10 @@ namespace Group03_MilkTeaShop.BS_Layer
                     return dataTable;
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable GetBillDetail(int id)
@@ -126,9 +126,8 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public int CreateBill(int id)
@@ -148,9 +147,8 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return 0;
-                throw ex;
             }
         }
         public int AddToOrder(int idBill, int idProduct, int quantity)
@@ -172,9 +170,8 @@ namespace Group03_MilkTeaShop.BS_Layer
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return 0;
-                throw ex;
             }
         }
     }

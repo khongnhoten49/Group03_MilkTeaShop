@@ -21,15 +21,29 @@ namespace Group03_MilkTeaShop.UserControls
         }
         private void LoadMenuWithId()
         {
-            dataGVEditProduct.DataSource = productDAO.LoadMenuWithId();
+            try
+            {
+                dataGVEditProduct.DataSource = productDAO.LoadMenuWithId();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         private void LoadAllCategories()
         {
-
-            comboBoxCategory.DataSource = productDAO.LoadCategory();
-            comboBoxCategory.DisplayMember = "name"; //tên cột chứa dữ liệu để hiển thị lên ComboBox
-            comboBoxCategory.ValueMember = "id"; //tên cột chứa dữ liệu để lưu trữ giá trị được chọn trong ComboBox
-
+            try
+            {
+                comboBoxCategory.DataSource = productDAO.LoadCategory();
+                comboBoxCategory.DisplayMember = "name"; //tên cột chứa dữ liệu để hiển thị lên ComboBox
+                comboBoxCategory.ValueMember = "id"; //tên cột chứa dữ liệu để lưu trữ giá trị được chọn trong ComboBox
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         private void UC_EditProduct_Load(object sender, EventArgs e)
         {
@@ -56,29 +70,45 @@ namespace Group03_MilkTeaShop.UserControls
             string name = textBoxName.Text;
             int quantity = int.Parse(textBoxQuantity.Text);
             int price = int.Parse(textBoxPrice.Text);
-            if (productDAO.UpdateProduct( id,name, idCategory, quantity, price) > 0)
+            try
             {
-                MessageBox.Show("SỬa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMenuWithId();
+                if (productDAO.UpdateProduct(id, name, idCategory, quantity, price) > 0)
+                {
+                    MessageBox.Show("SỬa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMenuWithId();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Sửa sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             string name = textBoxName.Text;
-            if (productDAO.DeleteProduct(name) > 0)
+            try
             {
-                MessageBox.Show("Xóa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMenuWithId();
+                if (productDAO.DeleteProduct(name) > 0)
+                {
+                    MessageBox.Show("Xóa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMenuWithId();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Xóa sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
     }
 }

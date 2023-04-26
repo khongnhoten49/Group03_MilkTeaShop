@@ -26,15 +26,28 @@ namespace Group03_MilkTeaShop.UserControls
         }
         private void LoadMenu()
         {
-            dataGVAddProduct.DataSource = productDAO.LoadMenu();
+            try
+            {
+                dataGVAddProduct.DataSource = productDAO.LoadMenu();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void LoadAllCategories()
         {
-
-            comboBoxCategory.DataSource = productDAO.LoadCategory();
-            comboBoxCategory.DisplayMember = "name"; //tên cột chứa dữ liệu để hiển thị lên ComboBox
-            comboBoxCategory.ValueMember = "id"; //tên cột chứa dữ liệu để lưu trữ giá trị được chọn trong ComboBox
-
+            try
+            {
+                comboBoxCategory.DataSource = productDAO.LoadCategory();
+                comboBoxCategory.DisplayMember = "name"; //tên cột chứa dữ liệu để hiển thị lên ComboBox
+                comboBoxCategory.ValueMember = "id"; //tên cột chứa dữ liệu để lưu trữ giá trị được chọn trong ComboBox
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         private void UC_AddProduct_Load(object sender, EventArgs e)
         {
@@ -51,15 +64,23 @@ namespace Group03_MilkTeaShop.UserControls
             string name = textBoxName.Text;
             int quantity = int.Parse(textBoxQuantity.Text);
             int price = int.Parse(textBoxPrice.Text);
-            if (productDAO.AddProduct(name, idcategory, quantity, price) > 0)
+            try
             {
-                MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMenu();
+                if (productDAO.AddProduct(name, idcategory, quantity, price) > 0)
+                {
+                    MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMenu();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Thêm sản phẩm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + ProductDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
     }
 }

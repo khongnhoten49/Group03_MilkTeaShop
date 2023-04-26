@@ -11,6 +11,8 @@ namespace Group03_MilkTeaShop.DAO
 {
     internal class ProductDAO
     {
+        public static SqlException sqlException;
+
         public ProductDAO() { }
         public DataTable LoadMenu()
         {
@@ -29,8 +31,8 @@ namespace Group03_MilkTeaShop.DAO
                 }
             }catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable LoadMenuWithId()
@@ -49,10 +51,10 @@ namespace Group03_MilkTeaShop.DAO
                     return dataTable;
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable LoadCategory()
@@ -73,8 +75,8 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable ListProductByCategory(string name)
@@ -97,8 +99,8 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public DataTable SearchProductByName(string name)
@@ -120,9 +122,8 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
         public int AddProduct(string name, int idCategory, int quantity, int price)
@@ -146,9 +147,8 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch(SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return 0;
-                throw ex;
             }
         }
         public int UpdateProduct( int id, string name, int idcategory, int quantity, int price)
@@ -173,9 +173,8 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return 0;
-                throw ex;
             }
 
         }
@@ -196,9 +195,8 @@ namespace Group03_MilkTeaShop.DAO
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                sqlException = ex;
                 return 0;
-                throw ex;
             }
         }
     }

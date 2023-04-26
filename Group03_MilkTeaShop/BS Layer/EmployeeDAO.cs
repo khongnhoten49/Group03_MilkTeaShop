@@ -11,6 +11,7 @@ namespace Group03_MilkTeaShop.BS_Layer
 {
     internal class EmployeeDAO
     {
+        public static SqlException sqlException;
         public DataTable LoadCashierName()
         {
             try
@@ -27,10 +28,10 @@ namespace Group03_MilkTeaShop.BS_Layer
                     return dataTable;
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                sqlException = ex;
                 return null;
-                throw ex;
             }
         }
     }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.AccessControl;
@@ -34,17 +35,23 @@ namespace Group03_MilkTeaShop
             int role;
             if(radioButtonAdmin.Checked ) { role = 0; }
             else { role = 1; }
-            if(accountDAO.Login(username, password, role).Rows.Count > 0) 
+            try
             {
-                id = Convert.ToInt32(accountDAO.Login(username, password, role).Rows[0]["ID"]);
-                Home home = new Home();
-                home.Show();
+                if (accountDAO.Login(username, password, role).Rows.Count > 0)
+                {
+                    id = Convert.ToInt32(accountDAO.Login(username, password, role).Rows[0]["ID"]);
+                    Home home = new Home();
+                    home.Show();
 
-                Hide();
-            }
-            else
+                    Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Username or Password is incorrect!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch
             {
-                MessageBox.Show("Username or Password is incorrect!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi truy vấn cơ sở dữ liệu: " + AccountDAO.sqlException.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
