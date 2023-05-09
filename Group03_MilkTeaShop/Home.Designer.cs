@@ -34,7 +34,7 @@
             this.StatisticBtn = new System.Windows.Forms.Button();
             this.InfoBtn = new System.Windows.Forms.Button();
             this.ProductMngBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.StaffMngBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UC_Container_Home
@@ -98,15 +98,16 @@
             this.ProductMngBtn.UseVisualStyleBackColor = true;
             this.ProductMngBtn.Click += new System.EventHandler(this.ProductMngBtn_Click);
             // 
-            // button1
+            // StaffMngBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(888, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(282, 48);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Staff Management";
-            this.button1.UseVisualStyleBackColor = true;
+            this.StaffMngBtn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffMngBtn.Location = new System.Drawing.Point(888, 12);
+            this.StaffMngBtn.Name = "StaffMngBtn";
+            this.StaffMngBtn.Size = new System.Drawing.Size(282, 48);
+            this.StaffMngBtn.TabIndex = 6;
+            this.StaffMngBtn.Text = "Staff Management";
+            this.StaffMngBtn.UseVisualStyleBackColor = true;
+            this.StaffMngBtn.Click += new System.EventHandler(this.StaffMngBtn_Click);
             // 
             // Home
             // 
@@ -114,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1254, 815);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.StaffMngBtn);
             this.Controls.Add(this.ProductMngBtn);
             this.Controls.Add(this.UC_Container_Home);
             this.Controls.Add(this.InfoBtn);
@@ -123,6 +124,7 @@
             this.Controls.Add(this.StatisticBtn);
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
 
         }
@@ -135,7 +137,7 @@
         private System.Windows.Forms.Button StatisticBtn;
         private System.Windows.Forms.Button InfoBtn;
         private System.Windows.Forms.Button ProductMngBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button StaffMngBtn;
     }
 }
 

@@ -82,11 +82,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaffManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffManagement.Designer.cs">
+      <DependentUpon>StaffManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_AddProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UC_AddProduct.Designer.cs">
       <DependentUpon>UC_AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_AddStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_AddStaff.Designer.cs">
+      <DependentUpon>UC_AddStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_EditProduct.cs">
       <SubType>UserControl</SubType>
@@ -134,8 +146,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StaffManagement.resx">
+      <DependentUpon>StaffManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_AddProduct.resx">
       <DependentUpon>UC_AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_AddStaff.resx">
+      <DependentUpon>UC_AddStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_EditProduct.resx">
       <DependentUpon>UC_EditProduct.cs</DependentUpon>
