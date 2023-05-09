@@ -37,6 +37,7 @@ namespace Group03_MilkTeaShop
             else { role = 1; }
             try
             {
+                DB_Connect connect = new DB_Connect(username, password);
                 if (accountDAO.Login(username, password, role).Rows.Count > 0)
                 {
                     id = Convert.ToInt32(accountDAO.Login(username, password, role).Rows[0]["ID"]);
