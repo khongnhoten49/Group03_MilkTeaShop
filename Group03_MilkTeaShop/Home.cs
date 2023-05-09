@@ -17,6 +17,12 @@ namespace Group03_MilkTeaShop
         {
             InitializeComponent();
             MenuBtn.BackColor = Color.Red;
+            if(Login.role == 1)
+            {
+                ProductMngBtn.Enabled = false;
+                BtnAccount.Enabled = false;
+                StaffMngBtn.Enabled = false;
+            }
             UC_Menu uc = new UC_Menu();
             addUserControl(uc);
         }

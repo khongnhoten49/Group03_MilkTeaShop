@@ -17,6 +17,7 @@ namespace Group03_MilkTeaShop
     {
         AccountDAO accountDAO = null;
         public static int id = 0;
+        public static int role;
         public Login()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Group03_MilkTeaShop
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            int role;
+
             if(radioButtonAdmin.Checked ) { role = 0; }
             else { role = 1; }
             try
