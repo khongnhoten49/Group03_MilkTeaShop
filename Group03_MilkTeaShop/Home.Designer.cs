@@ -35,9 +35,7 @@
             this.InfoBtn = new System.Windows.Forms.Button();
             this.ProductMngBtn = new System.Windows.Forms.Button();
             this.StaffMngBtn = new System.Windows.Forms.Button();
-
             this.BtnAccount = new System.Windows.Forms.Button();
-
             this.SuspendLayout();
             // 
             // UC_Container_Home
@@ -104,10 +102,9 @@
             // StaffMngBtn
             // 
             this.StaffMngBtn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.StaffMngBtn.Location = new System.Drawing.Point(783, 12);
             this.StaffMngBtn.Name = "StaffMngBtn";
-            this.StaffMngBtn.Size = new System.Drawing.Size(142, 48);
+            this.StaffMngBtn.Size = new System.Drawing.Size(161, 48);
             this.StaffMngBtn.TabIndex = 6;
             this.StaffMngBtn.Text = "Staff";
             this.StaffMngBtn.UseVisualStyleBackColor = true;
@@ -116,22 +113,13 @@
             // BtnAccount
             // 
             this.BtnAccount.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAccount.Location = new System.Drawing.Point(931, 12);
+            this.BtnAccount.Location = new System.Drawing.Point(950, 12);
             this.BtnAccount.Name = "BtnAccount";
             this.BtnAccount.Size = new System.Drawing.Size(195, 48);
             this.BtnAccount.TabIndex = 7;
             this.BtnAccount.Text = "Account";
             this.BtnAccount.UseVisualStyleBackColor = true;
             this.BtnAccount.Click += new System.EventHandler(this.BtnAccount_Click);
-
-            this.StaffMngBtn.Location = new System.Drawing.Point(888, 12);
-            this.StaffMngBtn.Name = "StaffMngBtn";
-            this.StaffMngBtn.Size = new System.Drawing.Size(282, 48);
-            this.StaffMngBtn.TabIndex = 6;
-            this.StaffMngBtn.Text = "Staff Management";
-            this.StaffMngBtn.UseVisualStyleBackColor = true;
-            this.StaffMngBtn.Click += new System.EventHandler(this.StaffMngBtn_Click);
-
             // 
             // Home
             // 
@@ -139,9 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1254, 815);
-
             this.Controls.Add(this.BtnAccount);
-
             this.Controls.Add(this.StaffMngBtn);
             this.Controls.Add(this.ProductMngBtn);
             this.Controls.Add(this.UC_Container_Home);
