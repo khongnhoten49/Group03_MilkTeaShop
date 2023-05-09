@@ -87,5 +87,17 @@ namespace Group03_MilkTeaShop
             OrderBtn.BackColor = Color.White;
             ProductMngBtn.BackColor = Color.White;
         }
+
+        private void BtnAccount_Click(object sender, EventArgs e)
+        {
+            BtnAccount.BackColor = Color.Red;
+            StatisticBtn.BackColor = Color.White;
+            MenuBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
+            StaffMngBtn.BackColor = Color.White;
+            ProductMngBtn.BackColor = Color.White;
+            UC_AddAccount uc = new UC_AddAccount();
+            addUserControl(uc);
+        }
     }
 }

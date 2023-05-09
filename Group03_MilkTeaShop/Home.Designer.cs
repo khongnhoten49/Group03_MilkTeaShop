@@ -35,6 +35,7 @@
             this.InfoBtn = new System.Windows.Forms.Button();
             this.ProductMngBtn = new System.Windows.Forms.Button();
             this.StaffMngBtn = new System.Windows.Forms.Button();
+            this.BtnAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UC_Container_Home
@@ -92,22 +93,33 @@
             this.ProductMngBtn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductMngBtn.Location = new System.Drawing.Point(582, 12);
             this.ProductMngBtn.Name = "ProductMngBtn";
-            this.ProductMngBtn.Size = new System.Drawing.Size(300, 48);
+            this.ProductMngBtn.Size = new System.Drawing.Size(195, 48);
             this.ProductMngBtn.TabIndex = 5;
-            this.ProductMngBtn.Text = "Product Management";
+            this.ProductMngBtn.Text = "Product";
             this.ProductMngBtn.UseVisualStyleBackColor = true;
             this.ProductMngBtn.Click += new System.EventHandler(this.ProductMngBtn_Click);
             // 
             // StaffMngBtn
             // 
             this.StaffMngBtn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffMngBtn.Location = new System.Drawing.Point(888, 12);
+            this.StaffMngBtn.Location = new System.Drawing.Point(783, 12);
             this.StaffMngBtn.Name = "StaffMngBtn";
-            this.StaffMngBtn.Size = new System.Drawing.Size(282, 48);
+            this.StaffMngBtn.Size = new System.Drawing.Size(142, 48);
             this.StaffMngBtn.TabIndex = 6;
-            this.StaffMngBtn.Text = "Staff Management";
+            this.StaffMngBtn.Text = "Staff";
             this.StaffMngBtn.UseVisualStyleBackColor = true;
             this.StaffMngBtn.Click += new System.EventHandler(this.StaffMngBtn_Click);
+            // 
+            // BtnAccount
+            // 
+            this.BtnAccount.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAccount.Location = new System.Drawing.Point(931, 12);
+            this.BtnAccount.Name = "BtnAccount";
+            this.BtnAccount.Size = new System.Drawing.Size(195, 48);
+            this.BtnAccount.TabIndex = 7;
+            this.BtnAccount.Text = "Account";
+            this.BtnAccount.UseVisualStyleBackColor = true;
+            this.BtnAccount.Click += new System.EventHandler(this.BtnAccount_Click);
             // 
             // Home
             // 
@@ -115,6 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1254, 815);
+            this.Controls.Add(this.BtnAccount);
             this.Controls.Add(this.StaffMngBtn);
             this.Controls.Add(this.ProductMngBtn);
             this.Controls.Add(this.UC_Container_Home);
@@ -138,6 +151,7 @@
         private System.Windows.Forms.Button InfoBtn;
         private System.Windows.Forms.Button ProductMngBtn;
         private System.Windows.Forms.Button StaffMngBtn;
+        private System.Windows.Forms.Button BtnAccount;
     }
 }
 
