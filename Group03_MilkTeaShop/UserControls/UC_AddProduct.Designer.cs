@@ -155,6 +155,7 @@
             this.dataGVAddProduct.RowTemplate.Height = 24;
             this.dataGVAddProduct.Size = new System.Drawing.Size(660, 593);
             this.dataGVAddProduct.TabIndex = 5;
+            this.dataGVAddProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVAddProduct_CellContentClick);
             // 
             // UC_AddProduct
             // 

@@ -71,5 +71,21 @@ namespace Group03_MilkTeaShop
             MenuBtn.BackColor = Color.White;
             OrderBtn.BackColor = Color.White;
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StaffMngBtn_Click(object sender, EventArgs e)
+        {
+            StaffManagement staffManagement = new StaffManagement();
+            staffManagement.Show();
+            StaffMngBtn.BackColor = Color.Red;
+            StatisticBtn.BackColor = Color.White;
+            MenuBtn.BackColor = Color.White;
+            OrderBtn.BackColor = Color.White;
+            ProductMngBtn.BackColor = Color.White;
+        }
     }
 }

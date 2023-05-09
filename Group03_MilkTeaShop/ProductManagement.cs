@@ -47,5 +47,10 @@ namespace Group03_MilkTeaShop
             UC_ViewProduct vp = new UC_ViewProduct();
             addUserControl(vp);
         }
+
+        private void ProductManagement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

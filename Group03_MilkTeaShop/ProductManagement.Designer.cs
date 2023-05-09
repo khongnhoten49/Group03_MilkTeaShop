@@ -97,6 +97,7 @@
             this.Controls.Add(this.UC_Container_PM);
             this.Name = "ProductManagement";
             this.Text = "ProductManagement";
+            this.Load += new System.EventHandler(this.ProductManagement_Load);
             this.ResumeLayout(false);
 
         }
