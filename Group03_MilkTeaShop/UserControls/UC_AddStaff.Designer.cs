@@ -60,7 +60,9 @@
             // 
             // dataGVAddStaff
             // 
+
             this.dataGVAddStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
             this.dataGVAddStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGVAddStaff.Location = new System.Drawing.Point(30, 380);
             this.dataGVAddStaff.Name = "dataGVAddStaff";

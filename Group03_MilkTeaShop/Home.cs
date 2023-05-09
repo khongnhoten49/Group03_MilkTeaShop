@@ -99,5 +99,6 @@ namespace Group03_MilkTeaShop
             UC_AddAccount uc = new UC_AddAccount();
             addUserControl(uc);
         }
+
     }
 }

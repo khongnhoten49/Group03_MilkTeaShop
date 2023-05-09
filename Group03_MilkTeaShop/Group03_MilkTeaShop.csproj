@@ -158,6 +158,7 @@
     <EmbeddedResource Include="UserControls\UC_AddAccount.resx">
       <DependentUpon>UC_AddAccount.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="UserControls\UC_AddProduct.resx">
       <DependentUpon>UC_AddProduct.cs</DependentUpon>
     </EmbeddedResource>
